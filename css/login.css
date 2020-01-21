@@ -1,0 +1,102 @@
+form div {
+    margin: 10px 0;
+}
+.loginContainer {
+    width: 556px;
+    margin: 0 auto;
+}
+label
+{
+    display: block;
+}
+form > div {
+    background-color: #F7F7F7;
+    padding: 15px;
+}
+    input[type='email'],
+    input[type='password'],
+    input[type='tel']
+     {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        border: 1px;
+
+        width: 516px;
+        height: 35px;
+
+    }
+    input[type='checkbox'], input[type='radio'] {
+        opacity: 0;
+        width: 0 !important;
+        height: 1px !important;
+        padding: 0;
+        margin: 0;
+    }
+    input[type='checkbox'] ~ label span.styled_checkbox {
+        background: url("/images/checkbox.png") no-repeat;
+        height: 22px;
+        width: 22px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+    input[type='checkbox']:checked ~ label span.styled_checkbox {
+        background: url("/images/checked_checkbox.png") no-repeat;
+        border: none !important;
+    }
+    form > div.finalSection
+    {
+        background: #fff;
+    }
+    .finalSection {
+        width: 280px;
+        margin: 0 auto;
+    }
+    button {
+        width: 280px;
+        padding: 0 30px 0 30px;
+        background-color: #206FCC;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        height: 35px;
+        text-transform: uppercase;
+        border: none;
+    }
+    .termText
+    {
+        display: inline-block;
+        width: 80%;
+        vertical-align: top;
+        margin-top:0;
+    }
+    @media (max-width:767px) {
+        input[type='email'],
+        input[type='password'],
+        input[type='tel'] {
+            width: 260px;
+            height: 40px;
+
+        }
+        .loginContainer,.finalSection,.checkoutModal {
+            width: 90%;
+            margin: 0 auto;
+        }
+        button {
+            width: 100%;
+            padding: 0 30px 0 30px;
+            background-color: #206FCC;
+            color: #fff;
+            font-size: 14px;
+
+            padding: 10px;
+            text-transform: uppercase;
+            border:1px solid #206FCC;
+        }
+    }
