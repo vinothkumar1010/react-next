@@ -1,12 +1,12 @@
 import '../css/style.css'
 import '../css/cart.css'
-import '../css/Checkout.css'
+import '../css/checkout.css'
 import '../css/home.css'
 import '../css/login.css'
 import '../css/navbar.css'
 import '../css/products.css'
 import '../css/products.css'
-
+import Navbar from "./Navbar"
 import React from 'react';
 import { Provider } from 'react-redux';
 import App from 'next/app';
@@ -25,6 +25,7 @@ class MyApp extends App {
     return (
       <Provider store={store}>
         <PersistGate persistor={store.__PERSISTOR} loading={null}>
+		 <Navbar/>
           <Component {...pageProps} />
         </PersistGate>
       </Provider>

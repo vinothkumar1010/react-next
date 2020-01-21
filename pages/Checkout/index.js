@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from 'react-redux';
-import { withRouter } from 'next/router'
+import Router,{ withRouter } from 'next/router'
 import * as cartActions from "../../actions/cartActions"
 class Checkout extends React.PureComponent
 {
@@ -70,7 +70,7 @@ class Checkout extends React.PureComponent
           document.querySelector("#email").value="";
          document.querySelector("#terms").checked = false;
          this.props.clearMyCart();
-          this.props.history.push('/');
+         Router.push({pathname: '/'});
 
     }
     handleValidation(){

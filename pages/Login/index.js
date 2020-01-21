@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from 'react-redux';
 import * as LoginActions from "../../actions/LoginActions"
-import { withRouter } from 'next/router'
+import Router,{ withRouter } from 'next/router'
 
 class Login extends React.Component{
     constructor(props)
@@ -15,7 +15,7 @@ class Login extends React.Component{
     componentDidMount()
     {
         if(this.props.isLoginSuccess)
-            this.props.history.push('/');
+             Router.push({pathname: '/'});
     }
  
   
@@ -35,7 +35,7 @@ class Login extends React.Component{
             provideValue:false
         });
          this.props.login({email, password},() => {
-            this.props.history.push('/');
+            Router.push({pathname: '/'});
           });
     
     }

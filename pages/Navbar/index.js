@@ -1,5 +1,5 @@
 import React from "react"
-import { withRouter } from 'next/router'
+import { withRouter,useRouter  } from 'next/router'
 import Link from 'next/link'
 import { connect } from 'react-redux';
 import * as LoginActions from "../../actions/LoginActions"
@@ -17,6 +17,7 @@ class Navbar extends React.Component{
     render()
     {
         const {userLoggedIn} =this.props;
+		
         return (<nav className="nav">
             <ul>
               <li>
@@ -26,7 +27,7 @@ class Navbar extends React.Component{
                     <Link href="/Cart" ><a>Cart <sup className="noOfItems">{this.props.cartItems.length}</sup></a></Link>
               </li>
               <li>
-                {userLoggedIn?(<Link href="/"  onClick={this.logout}><a>Logout</a></Link>):(<Link href="/Login"><a>Login</a></Link>)}
+                {userLoggedIn?(<Link href="/" ><a onClick={this.logout}>Logout</a></Link>):(<Link href="/Login" ><a>Login</a></Link>)}
               </li>
               
             </ul>
