@@ -1,3 +1,9 @@
+import App from 'next/app'
+import React from 'react'
+import withReduxStore from '../lib/with-redux-store'
+import { Provider } from 'react-redux'
+import { persistStore } from 'redux-persist'
+import { PersistGate } from 'redux-persist/integration/react'
 import '../css/style.css'
 import '../css/cart.css'
 import '../css/checkout.css'
@@ -7,29 +13,26 @@ import '../css/navbar.css'
 import '../css/products.css'
 import '../css/products.css'
 import Navbar from "./Navbar"
-import React from 'react';
-import { Provider } from 'react-redux';
-import App from 'next/app';
-import withRedux from 'next-redux-wrapper';
-import { PersistGate } from 'redux-persist/integration/react';
-import reduxStore from '../store/store';
 class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    const pageProps = Component.getInitialProps
-      ? await Component.getInitialProps(ctx)
-      : {};
-    return { pageProps };
+  constructor(props) {
+    super(props)
+    this.persistor = persistStore(props.reduxStore)
   }
+
   render() {
-    const { Component, pageProps, store } = this.props;
+    const { Component, pageProps, reduxStore } = this.props
     return (
-      <Provider store={store}>
-        <PersistGate persistor={store.__PERSISTOR} loading={null}>
-		 <Navbar/>
+      <Provider store={reduxStore}>
+        <PersistGate
+          loading={<Component {...pageProps} />}
+          persistor={this.persistor}
+        >
+			<Navbar/>
           <Component {...pageProps} />
         </PersistGate>
       </Provider>
-    );
+    )
   }
 }
-export default withRedux(reduxStore)(MyApp);
+
+export default withReduxStore(MyApp)

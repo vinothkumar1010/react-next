@@ -2,7 +2,6 @@ import React from "react";
 import { connect } from 'react-redux';
 import * as LoginActions from "../../actions/LoginActions"
 import Router,{ withRouter } from 'next/router'
-
 class Login extends React.Component{
     constructor(props)
     {
